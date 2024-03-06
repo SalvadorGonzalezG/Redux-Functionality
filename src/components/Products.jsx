@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import {dividirEntreDos,restablecerState, multiplicarPor1000, multiplicarPor100, multiplicarPor20,multiplicarPuntuacion, cambiarNombre, incrementarPuntuacion, decrementarPuntuacion } from '../features/slice/miSlice';
+import {modif2Valor,modificar1valor,dividirEntreDos,restablecerState, multiplicarPor1000, multiplicarPor100, multiplicarPor20,multiplicarPuntuacion, cambiarNombre, incrementarPuntuacion, decrementarPuntuacion } from '../features/slice/miSlice';
 import {ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 // useSelector: hook para releccionar datos especificos del store de redux
@@ -10,6 +10,7 @@ const Products = () => {
   const miNombreAhora = useSelector(state => state.unValor.miNombre)
   const puntuacionAhora = useSelector(state => state.otroValor.puntuacion)
   const miEdadAhora = useSelector(state=>state.unValor.edad)
+  const lenguaje = useSelector(state => state.unValor.bibliotecas)
 
   const modificar = () => {
 // que funcion quiero utilizar con el nuevo valor que quiero añadir al estado
@@ -43,16 +44,35 @@ const Products = () => {
     dispatch(dividirEntreDos())
     toast('dividiste entre 2')
   }
+  const modificar2Array = () => {
+    dispatch(modificar1valor({
+      indice:0,
+      nuevoNombre: "Java",
+      nuevoInicio:"Agosto de 2010"
+    }))
+  }
+  const modif2Value = () => {
+    dispatch(modif2Valor({
+      indice:1,
+      nuevoNombre:"PHP",
+      nuevoInicio:"Marzo 2015"
+    }))
+  }
  
   return (
     <>
     <div>
       <h1>{miNombreAhora} </h1>
       <h2>{miEdadAhora} años</h2>
+    
+      {lenguaje.map((valor, i)=> 
+      <div key={i}>{valor.name} ({valor.inicio})</div>
+          )}
       <h1>{puntuacionAhora}</h1>
       <button onClick={modificar}> changeName </button>
       <button onClick={nameAnterior}>nombreAnterior</button>
-      
+      <button onClick={modificar2Array}>modificar un Valor2 array</button>
+      <button onClick={modif2Value}>mod 2 valor 2Array</button>
       <button onClick={masUno}>+1</button>
       <button onClick={menosUno}>-1</button>
       <button onClick={entre2}>/2</button>
