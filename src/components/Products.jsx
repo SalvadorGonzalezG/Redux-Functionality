@@ -58,6 +58,7 @@ const Products = () => {
       nuevoInicio:"Marzo 2015"
     }))
   }
+
  
   return (
     <>
@@ -70,6 +71,7 @@ const Products = () => {
           )}
       <h1>{puntuacionAhora}</h1>
       <button onClick={modificar}> changeName </button>
+      
       <button onClick={nameAnterior}>nombreAnterior</button>
       <button onClick={modificar2Array}>modificar un Valor2 array</button>
       <button onClick={modif2Value}>mod 2 valor 2Array</button>
