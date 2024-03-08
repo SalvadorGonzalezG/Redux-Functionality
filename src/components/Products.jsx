@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import {modif2Valor,modificar1valor,dividirEntreDos,restablecerState, multiplicarPor1000, multiplicarPor100, multiplicarPor20,multiplicarPuntuacion, cambiarNombre, incrementarPuntuacion, decrementarPuntuacion } from '../features/slice/miSlice';
+import {moreedad,modif2Valor,modificar1valor,dividirEntreDos,restablecerState, multiplicarPor1000, multiplicarPor100, multiplicarPor20,multiplicarPuntuacion, cambiarNombre, incrementarPuntuacion, decrementarPuntuacion } from '../features/slice/miSlice';
 import {ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 // useSelector: hook para releccionar datos especificos del store de redux
@@ -58,7 +58,9 @@ const Products = () => {
       nuevoInicio:"Marzo 2015"
     }))
   }
-
+  const masedad=() => {
+    dispatch(moreedad())
+  }
  
   return (
     <>
@@ -71,6 +73,7 @@ const Products = () => {
           )}
       <h1>{puntuacionAhora}</h1>
       <button onClick={modificar}> changeName </button>
+      <button onClick={masedad}>MasEdad</button>
       
       <button onClick={nameAnterior}>nombreAnterior</button>
       <button onClick={modificar2Array}>modificar un Valor2 array</button>

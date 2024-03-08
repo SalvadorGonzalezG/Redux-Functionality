@@ -9,6 +9,9 @@ export const origenSlice = createSlice({
     bibliotecas: [{name:"JavaScrip", inicio:2002},{name:"NodeJs",inicio:2005}]
     },
     reducers:{
+        moreedad:(state) =>{
+            state.edad = state.edad +1
+        },
         // la modificacion del estado inicial se va a realizar mediante un reducer.
         cambiarNombre:(state, action) => {
         // que voy a utilizar para modificar = lo que reciba mediante el payload 
@@ -66,7 +69,7 @@ export const otroSlice = createSlice({
     }
 })
 
-export const {agregarUnValor, eliminarUnValor, modif2Valor,restablecerState,cambiarNombre,modificar1valor} = origenSlice.actions
+export const {moreedad, agregarUnValor, eliminarUnValor, modif2Valor,restablecerState,cambiarNombre,modificar1valor} = origenSlice.actions
 export const {incrementarPuntuacion} = otroSlice.actions
 export const {dividirEntreDos,multiplicarPor1000, multiplicarPor100,decrementarPuntuacion,multiplicarPuntuacion, multiplicarPor20} = otroSlice.actions
 
